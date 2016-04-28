@@ -14,7 +14,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#first"><i class="ion-ios-analytics-outline"></i> MySwapi</a>
+                <a class="navbar-brand page-scroll" href="#first">
+                    <i class="fa fa-empire" aria-hidden="true"></i> 
+                    <i class="fa fa-rebel" aria-hidden="true"></i> 
+                    MySwapi</a>
             </div>
             <div class="navbar-collapse collapse" id="bs-navbar">
                 <ul class="nav navbar-nav">

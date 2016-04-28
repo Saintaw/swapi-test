@@ -7,7 +7,7 @@ listMovies();
 
 function listMovies() {
   var swApi = "http://swapi.co/api/films/";
-  
+  $("#temp-loader").show();
   $.getJSON( swApi, {
     format: "json"
   })
@@ -24,27 +24,68 @@ function listMovies() {
             
             $("<li />").html($butn).addClass('list-group-item').appendTo($('#sw-listing'));
         });
-
+    $("#temp-loader").hide();
     });    
     
 }
 
 function showMovie(movieId) {
    var swApi = movieId;
-   var swApiObjects = ['cast','planets','starships','vehicles','species'];
+   var swApiObjects = ['characters','planets','starships','vehicles','species'];
+   var swApiHidden = ['title','opening_crawl','episode_id','created','edited'];
+    $('#swapi-detail').hide();
    
     $.getJSON( swApi, {
     format: "json"
   })
     .done(function( data ) {
+        $("#swapi-film-title").html(data.title);
+        //loop json main object
         $.each( data, function( key, value ) {
-            console.log(key, value );
-            
-            //Fill content
-            $idNode = 'swapi-film-' +key;
-            $('#' +$idNode).html(value);
-            $("label[for='" +$idNode + "']").html(key +": ");
-            
+            var $div = $("<div/>")
+                .attr("id", "swapi-film-" +key);
+            var $localUl = $( "<ul />" )
+                .attr("class" , "list-group");
+           
+            var a = swApiObjects.indexOf(key); //matching a swapi object
+            var b = swApiHidden.indexOf(key); //matching an unwanted
+            $str = "<strong>" + key + ": </strong>";
+
+            if (a < 0) { //Fill content with strings
+                $("<li/>")
+                .attr("class", "list-group-item")
+                .html($str +value).appendTo($localUl);
+            }
+            else {//get object details
+               
+               console.log('obj section: ' ,key);
+               $("<li/>")
+               .attr("class", "list-group-item")
+               .html($str).appendTo($localUl);
+       
+               $.each( value, function( nkey, val ) {
+                  var det_url = val;
+                    $.getJSON( det_url, {format: "json"})
+                        .done(function( detdata ) {
+                            if (detdata.name != undefined)
+                                {
+                                //console.log(key,detdata.name);
+                                    $("<li/>")
+                                    .attr("class", "list-group-item")
+                                    .html(detdata.name).appendTo($localUl);                                
+
+                                }
+                            });                   
+                        });
+                        
+
+            }
+        if (b < 0) {
+            //append the full list to the section
+            $div.html($localUl);
+            $div.appendTo($("#film-view"));            
+            }
+
         });        
         
         $('#titlecontent').html(data.opening_crawl);
@@ -77,3 +118,5 @@ function showMovie(movieId) {
 
     });   
 }
+
+  

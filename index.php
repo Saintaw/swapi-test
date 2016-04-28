@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
     <link href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
+    <link rel="stylesheet" href="css/font-awesome.css" />
+    
+    
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/local.css" />
     <style>
@@ -58,8 +61,14 @@ require_once './inc/inc_nav.php';
         <div class="container">
             <div class="row">
                 <div class="col-sm-4">
-                    <ul id="sw-listing" class="list-group">//listing here</ul>
-
+                    <div id="sw-listing-container">
+                        <div id="temp-loader" style="display:none;">
+                                Loading...
+                                <i class="fa fa-cog fa-spin fa-3x fa-fw margin-bottom"></i>
+                                <span class="sr-only">Loading...</span>                            
+                        </div>
+                        <ul id="sw-listing" class="list-group"></ul>
+                    </div>
                 </div>
                 <div class="col-sm-8" id="swapi-detail" style="display:none;">
                     <?php

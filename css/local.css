@@ -1,70 +1,29 @@
-
-.lib-panel {
-    margin-bottom: 20Px;
-
+.pink {
+    border: dashed 1px #f0f;
 }
-.lib-panel img {
-    width: 100%;
-    background-color: transparent;
+.yellow {
+    border: dashed 1px yellow;
 }
 
-.lib-panel .row,
-.lib-panel .col-md-6 {
-    padding: 0;
+#film-view {
+    font-family: tahoma,arial;
+    font-size: 9pt;
+    color: #222222;
 }
 
-
-.lib-panel .lib-row {
-    padding: 0 20px 0 20px;
+#film-view li:first-letter {
+    text-transform: uppercase;
+   
 }
-
-.lib-panel .lib-row.lib-header {
-    font-size: 20px;
-    padding: 10px 20px 0 20px;
-}
-
-.lib-panel .lib-row.lib-header .lib-header-seperator {
-    height: 2px;
-    width: 26px;
-    background-color: #d9d9d9;
-    margin: 7px 0 7px 0;
-}
-
-.lib-panel .lib-row.lib-desc {
-    position: relative;
-    height: 100%;
-    display: block;
-    font-size: 13px;
-}
-.lib-panel .lib-row.lib-desc a{
-    position: absolute;
-    width: 100%;
-    bottom: 10px;
-    left: 20px;
-}
-
-.row-margin-bottom {
-    margin-bottom: 20px;
-}
-
-.box-shadow {
-    -webkit-box-shadow: 0 0 10px 0 rgba(0,0,0,.10);
-    box-shadow: 0 0 10px 0 rgba(0,0,0,.10);
-}
-
-.no-padding {
-    padding: 0;
-}        
-     
-
 
 /* SW Canvas */
 #swapi-canvas {
-    background-color: #000;
-    border: solid 1px yellow;
+        background-color: #000;
+        background-image: url(/media/stars_med.jpg);
+    border: solid 1px #F6EA9C;
     border-radius: 3px;
     overflow: hidden;
-    height: 320px;    
+    height: 310px;    
 }
 
 #titles
@@ -76,15 +35,16 @@
         position: relative;
         width: 280px;
 	height: 300px;
-        bottom: 40px;
+        bottom: 0px;
         left: -20px;
         padding: 6px;
 	font-size: 150%;
 	text-align: justify;
 	/* overflow: hidden; */
-	transform-origin: 50% 100%;
-	transform: perspective(200px) rotateX(35deg);
+	transform-origin: 40% 100%;
+	transform: perspective(200px) rotateX(45deg);
         background-color: #000;
+
   
 }
 #titles:after
@@ -94,15 +54,15 @@
 	left: 0;
 	right: 0;
 	top: 0;
-	bottom: 60%;
+	bottom: 40%;
 	pointer-events: none;
 }
 #titlecontent
 {
 	position: absolute;
 	top: 100%;
-	animation: scroll 50s linear 0s infinite;
-        color: yellow;
+	animation: scroll 50s linear 1s infinite;
+        color: #ff0;
 }
 
 @keyframes scroll {
