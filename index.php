@@ -6,7 +6,7 @@
     <meta name="description" content="This is a test for using the SWAPI Api" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css" />
     <link href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" />
     <link rel="stylesheet" href="css/font-awesome.css" />
@@ -70,12 +70,18 @@ require_once './inc/inc_nav.php';
                         <ul id="sw-listing" class="list-group"></ul>
                     </div>
                 </div>
-                <div class="col-sm-8" id="swapi-detail" style="display:none;">
+                <div class="col-sm-8" id="swapi-detail-container">
+                         <div id="temp-loader2" style="display:none;">
+                                Loading...
+                                <i class="fa fa-cog fa-spin fa-3x fa-fw margin-bottom"></i>
+                                <span class="sr-only">Loading...</span>                            
+                        </div>                   
+                <div id="swapi-detail" style="display:none;">
                     <?php
                     include_once './inc/inc_movie_card.php';
                     ?>
                 </div> 
-                
+                </div>
             </div>
             
           
