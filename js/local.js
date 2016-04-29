@@ -48,7 +48,7 @@ function showMovie(movieId) {
                 .attr("class" , "list-group");
            
             var a = swApiObjects.indexOf(key); //matching a swapi object
-            var b = swApiHidden.indexOf(key); //matching an unwanted
+            var b = swApiHidden.indexOf(key); //matching an unwanted item (Don't display these)
             $str = "<strong>" + key + ": </strong>";
 
             if (a < 0) { //Fill content with strings
